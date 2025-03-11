@@ -15,13 +15,13 @@ class DNN:
             out_dim = layers_size[l]
             std = np.sqrt(2/(in_dim + out_dim))
             weight_init = tf.random.uniform(shape=[in_dim, out_dim], minval=-R, maxval=R, dtype=tf.float32)
+            '''
             bias_init = tf.random.uniform(shape=[1, out_dim], minval=-R, maxval=R, dtype=tf.float32)
             '''
             if l == 1:
                 bias_init = -tf.multiply(weight_init, x_col)
             else:
                 bias_init = tf.random.uniform(shape=[1, out_dim], minval=-R, maxval=R, dtype=tf.float32)
-            '''
             weight = tf.Variable(weight_init)
             bias = tf.Variable(bias_init)
             '''
